@@ -56,3 +56,8 @@ app.post('/payment', async (req, res) => {
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`CinetPay proxy running on port ${PORT}`))
+
+app.get('/ip', async (req, res) => {
+  const r = await fetch('https://api.ipify.org?format=json').then(x => x.json()).catch(() => ({ ip: 'unknown' }))
+  res.json(r)
+})
