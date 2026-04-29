@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cinetpay-proxy
+    runtime: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: CINETPAY_API_KEY
+        sync: false
+      - key: CINETPAY_ACCOUNT_PASSWORD
+        sync: false
+      - key: PROXY_SECRET
+        sync: false
+      - key: ALLOWED_ORIGIN
+        value: https://idc-maize-shop.vercel.app
